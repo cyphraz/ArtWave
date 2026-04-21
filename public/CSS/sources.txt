@@ -1,0 +1,8 @@
+auth.png	-	https://icons8.com/icon/59855/password
+post.png	-	https://icons8.com/icon/60628/add-image
+feed.png	-	https://icons8.com/icon/101699/rss
+search.png	-	https://icons8.com/icon/99289/google-web-search
+profile.png	-	https://icons8.com/icon/77883/profile
+map.png		-	https://icons8.com/icon/59829/map
+inspiration.png	-	https://icons8.com/icon/61587/innovation
+logout.png	-	https://icons8.com/icon/59781/logout

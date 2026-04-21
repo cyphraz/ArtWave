@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<head>
+  <title>ArtWave – Artwork Social Network</title>
+  <link rel="stylesheet" href="CSS/style.css" />
+</head>
+<body>
+  <header class="top-bar">
+  <div class="logo">🎨 ArtWave</div>
+
+  <nav class="top-nav">
+    <button class="nav-btn" data-section="auth-section"><img src="CSS/auth.png" alt="Auth" class="nav-icon" /> Auth</button>
+    <button class="nav-btn" data-section="post-section"><img src="CSS/post.png" alt="Post" class="nav-icon" /> Post</button>
+    <button class="nav-btn" data-section="feed-section"><img src="CSS/feed.png" alt="Feed" class="nav-icon" /> Feed</button>
+    <button class="nav-btn" data-section="search-section"><img src="CSS/search.png" alt="Search" class="nav-icon" /> Search</button>
+    <button class="nav-btn" data-section="profile-section"><img src="CSS/profile.png" alt="Profile" class="nav-icon" /> Profile</button>
+    <button class="nav-btn" data-section="map-section"><img src="CSS/map.png" alt="Map" class="nav-icon" /> Map</button>
+    <button class="nav-btn" data-section="inspo-section"><img src="CSS/inspriation.png" alt="Inspiration" class="nav-icon" /> Inspiration</button>
+  </nav>
+
+  <div class="top-right">
+    <div id="current-user" class="current-user">Not logged in</div>
+    <button id="top-logout-btn" class="secondary-btn small-logout hidden">
+      <img src="CSS/auth.png" alt="Logout" class="nav-icon" /> Logout
+    </button>
+  </div>
+</header>
+
+  <main class="main-container">
+
+    <div id="global-message" class="message"></div>
+</section>
+
+    <section id="post-section" class="page-section hidden">
+  <h2>Share New Artwork</h2>
+  <div id="post-message" class="message small"></div>
+  <div class="card">
+    <label>Title</label>
+    <input type="text" id="art-title" />
+
+    <label>Description</label>
+    <textarea id="art-description" rows="3"></textarea>
+
+    <label>Tags (comma separated)</label>
+    <input type="text" id="art-tags" placeholder="digital, portrait, abstract" />
+
+    <label>Artwork image (optional)</label>
+    <input type="file" id="art-image" accept="image/*" />
+
+    <div style="margin-top: 0.8rem;">
+      <button id="post-art-btn" class="primary-btn">Post Artwork</button>
+    </div>
+  </div>
+</section>
+
+<section id="auth-section" class="page-section">
+  <h2>Register / Login</h2>
+
+  <div class="two-column">
+    <div class="card" id="register-form">
+      <h3>Create an account</h3>
+      <div id="register-message" class="message small"></div>
+
+      <label>Username</label>
+      <input type="text" id="reg-username" />
+
+      <label>Email</label>
+      <input type="email" id="reg-email" />
+
+      <label>Password</label>
+      <input type="password" id="reg-password" />
+
+      <label>Bio (optional)</label>
+      <textarea id="reg-bio" rows="2"></textarea>
+
+      <button id="register-btn" class="primary-btn">Register</button>
+
+      <p class="hint" style="margin-top:0.8rem;">
+        Already have an account?
+        <a href="#" id="show-login-link">Login here</a>
+      </p>
+    </div>
+
+    <div class="card hidden" id="login-form">
+      <h3>Login</h3>
+      <div id="login-message" class="message small"></div>
+
+      <label>Username</label>
+      <input type="text" id="login-username" />
+
+      <label>Password</label>
+      <input type="password" id="login-password" />
+
+      <div class="row" style="margin-top:0.6rem;">
+        <button id="login-btn" class="primary-btn">Login</button>
+      </div>
+
+      <p class="hint" style="margin-top:0.8rem;">
+        Don’t have an account?
+        <a href="#" id="show-register-link">Register here</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="profile-section" class="page-section hidden">
+  <h2>Your Profile</h2>
+  <div id="profile-message" class="message small"></div>
+
+  <div id="profile-card" class="card">
+    <!-- Filled by JS -->
+  </div>
+
+  <h3>Your artworks</h3>
+  <div id="profile-artworks" class="cards-grid"></div>
+</section>
+
+<section id="map-section" class="page-section hidden">
+  <h2>Art Communities Map</h2>
+  <div class="card">
+    <p class="hint">
+      This map highlights local art galleries and communities. You can zoom and move around to explore.
+    </p>
+    <div class="map-wrapper">
+      <iframe
+        id="art-map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115736.65565139597!2d55.155!3d25.2048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f4287d3a7cf2b%3A0x50c730e0b4c56e7f!2sArt%20Gallery!5e0!3m2!1sen!2sae!4v1700000000000"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+    <section id="feed-section" class="page-section hidden">
+      <h2>Your Feed</h2>
+      <div class="row space-between">
+        <button id="refresh-feed-btn" class="secondary-btn">Refresh Feed</button>
+        <span class="hint">Feed shows posts from users you follow.</span>
+      </div>
+      <div id="feed-message" class="message small"></div>
+      <div id="feed-container" class="cards-grid"></div>
+    </section>
+
+    <section id="inspo-section" class="page-section hidden">
+      <h2>Inspiration</h2>
+      <div class="row space-between">
+        <span class="hint">Latest article titles scraped from Artsy.</span>
+        <button id="refresh-inspo-btn" class="secondary-btn">Refresh Inspiration</button>
+      </div>
+      <div id="inspo-message" class="message small"></div>
+      <div id="inspo-list" class="list"></div>
+    </section>
+
+    
+    <section id="search-section" class="page-section hidden">
+      <h2>Search</h2>
+      <div class="two-column">
+        <!-- search users -->
+        <div class="card">
+          <h3>Find users to follow</h3>
+          <div id="user-search-message" class="message small"></div>
+          <div class="row">
+            <input type="text" id="user-search-input" placeholder="Search username..." />
+            <button id="user-search-btn" class="secondary-btn">Search</button>
+          </div>
+          <div id="user-search-results" class="list"></div>
+        </div>
+
+        <!-- to search artworks -->
+        <div class="card">
+          <h3>Search artworks</h3>
+          <div id="art-search-message" class="message small"></div>
+          <div class="row">
+            <input type="text" id="art-search-input" placeholder="Search title / tags..." />
+            <button id="art-search-btn" class="secondary-btn">Search</button>
+          </div>
+          <div id="art-search-results" class="cards-grid"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>ArtWave · CST2120 Coursework 2</small>
+  </footer>
+
+  <!-- JS -->
+  <script src="JS/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+/* layout and theme */
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #2a1620 0, #1a0e12 45%, #0b0507 100%);
+  color: #f8e9d7;
+}
+
+/* top bar */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.8rem;
+  background: #1a0e12;
+  border-bottom: 1px solid #3b1f2c;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.small-logout {
+  padding: 0.25rem 0.8rem;
+  font-size: 0.78rem;
+}
+
+/* utility */
+.hidden {
+  display: none !important;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #f8e9d7;
+}
+
+.top-nav {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.nav-btn {
+  background: transparent;
+  border: 1px solid #573140;
+  border-radius: 999px;
+  color: #f8e9d7;
+  padding: 0.35rem 0.9rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.nav-btn:hover {
+  background: #3b1f2c;
+}
+
+.nav-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+}
+
+/* main container */
+.main-container {
+  max-width: 1100px;
+  margin: 1.7rem auto;
+  padding: 0 1.2rem;
+}
+
+.page-section {
+  margin-bottom: 2.2rem;
+}
+
+.page-section.hidden {
+  display: none;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #fef3e8;
+}
+
+/* register + login side by side */
+#auth-section .two-column {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+/* cards */
+.card {
+  background: #2a1620;
+  border: 1px solid #3b1f2c;
+  border-radius: 0.8rem;
+  padding: 1rem 1.2rem;
+}
+
+/* inputs & forms */
+label {
+  display: block;
+  margin-top: 0.6rem;
+  margin-bottom: 0.2rem;
+  font-size: 0.8rem;
+  color: #c8b4a6;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 0.45rem 0.7rem;
+  border-radius: 0.45rem;
+  border: 1px solid #573140;
+  background: #12080c;
+  color: #f8e9d7;
+  font-size: 0.9rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9a818c;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #b72f4a;
+}
+
+/* buttons (simplified) */
+.primary-btn,
+.secondary-btn {
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-weight: 500;
+}
+
+.primary-btn {
+  background: #b72f4a;
+  color: #fff;
+  border: 1px solid #b72f4a;
+}
+
+.primary-btn:hover {
+  background: #9f263d;
+}
+
+.secondary-btn {
+  background: transparent;
+  color: #f8e9d7;
+  border: 1px solid #573140;
+}
+
+.secondary-btn:hover {
+  background: #3b1f2c;
+}
+
+/* messages */
+.message {
+  margin: 0.4rem 0 0.7rem;
+  min-height: 1.1rem;
+  font-size: 0.85rem;
+}
+
+.message.error {
+  color: #ff9aa2;
+}
+
+.message.success {
+  color: #b8ffcb;
+}
+
+/* feed cards */
+.art-card-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #fef3e8;
+}
+
+.art-card-meta {
+  font-size: 0.75rem;
+  color: #c8b4a6;
+  margin-bottom: 0.4rem;
+}
+
+.art-card-desc {
+  font-size: 0.88rem;
+  color: #f0dac7;
+}
+
+.art-card-img {
+  width: 100%;
+  max-height: 240px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  background: #12080c;
+}
+
+/* footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid #3b1f2c;
+  background: #12080c;
+  font-size: 0.75rem;
+  color: #9a818c;
+}
+
+/* simple hidden helper (for toggling forms) */
+.hidden {
+  display: none;
+}
+
+/* little link text under forms */
+.auth-switch {
+  margin-top: 0.7rem;
+  font-size: 0.8rem;
+  color: #c8b4a6;
+}
+
+.auth-switch a {
+  color: #ffb4c2;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.auth-switch a:hover {
+  text-decoration: none;
+}
+
+.map-wrapper {
+  margin-top: 0.8rem;
+  border-radius: 0.9rem;
+  overflow: hidden;
+  border: 1px solid #3b1f2c;
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 360px;
+  display: block;
+}
