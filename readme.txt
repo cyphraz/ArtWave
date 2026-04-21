@@ -1,25 +1,79 @@
-CST2120 CW2 - Setup and Usage
-=============================
+ArtWave
+=======
+ArtWave is a social media platform built for artists. Users can share their artwork,
+discover pieces from other creators, like and comment on posts, and follow artists
+they admire — all in one place.
 
-Requirements
-- Node.js 18+
-- MongoDB running locally or accessible via MONGO_URL
-- Chrome/Edge installed, or set PUPPETEER_EXECUTABLE_PATH to a Chromium/Chrome/Edge executable for the inspiration scraper.
+Overview
+--------
+ArtWave gives artists a dedicated space to showcase their work and grow an audience.
+The platform is built on a Node.js/Express backend with a MongoDB database, handling
+image uploads, user profiles, and social interactions.
 
-Install
-1) npm install axios cors express express-session mongodb multer puppeteer
+Features
+--------
+* Upload and share artwork with the community
+* Browse a feed of artwork from all artists
+* Like and comment on posts
+* Follow other artists
+* User profiles displaying uploaded works
+* Image upload support via Multer
+* Persistent data storage with MongoDB
 
-Run
-1) npm start
-2) Open http://localhost:8080/M01036102/
+How to Use
+----------
+1. Register a new account or log in.
+2. Upload your artwork from your profile.
+3. Browse the feed to discover other artists.
+4. Like and comment on artwork you enjoy.
+5. Follow artists to stay updated with their work.
 
-Environment
-- MONGO_URL: Mongo connection string (default: mongodb://localhost:27017)
-- DB_NAME: Database name (default: art_share)
-- SESSION_SECRET: Session secret string
-- PUPPETEER_EXECUTABLE_PATH: Optional; path to Chrome/Chromium/Edge executable if auto-detect fails
+Tech Stack
+----------
+* Frontend  — HTML5, CSS3, JavaScript
+* Backend   — Node.js, Express.js
+* Database  — MongoDB, Mongoose
+* Uploads   — Multer (image handling)
+
+Project Structure
+-----------------
+  public/
+    index.html         - main entry point
+    uploads/artworks/  - uploaded artwork images
+
+  server.js            - main server and API routes
+  package.json         - project dependencies
+  .gitignore           - ignored files (node_modules, .env)
+
+Run Locally
+-----------
+1. Clone the repository:
+
+     git clone https://github.com/cyphraz/ArtWave.git
+
+2. Navigate into the project folder:
+
+     cd ArtWave
+
+3. Install dependencies:
+
+     npm install
+
+4. Start the server:
+
+     node server.js
+
+5. Open your browser and go to:
+
+     http://localhost:3000
 
 Notes
-- Inspiration endpoint scrapes lori art quotes live; if the browser is missing you will get 502 and a message.
-- Uploads are served from public/uploads.
-- SPA deep-links are served under /M01036102/ (feed, post, profile, search, map, inspiration).
+-----
+* Make sure MongoDB is running locally before starting the server.
+* Uploaded images are stored in public/uploads/artworks/.
+* A .env file may be required for database connection string and secrets —
+  create one in the root folder if needed.
+
+Author
+------
+Zarif Saleem — github.com/cyphraz
